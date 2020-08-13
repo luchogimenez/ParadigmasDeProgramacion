@@ -10,7 +10,16 @@ Considerar que los distintos materiales de lectura se representan con functores 
     libro(Nombre, Editorial, CantidadDePaginas)
     paper(Titulo, CantidadDeHojas, CantidadDeVisitas)
     saga(Nombre, CantidadDeLibros)
-
+*/
+lecturaDensa(libro(_, _,CantidadDePaginas)):-
+    CantidadDePaginas>=200.
+lecturaDensa(libro(_, Editorial,_)):-
+    Editorial == paidos.
+lecturaDensa(paper(_,CantidadDeHojas,CantidadDeVisitas)):-
+    (CantidadDeHojas-CantidadDeVisitas)>100.
+lecturaDensa(saga(_,CantidadDeLibros)):-
+    CantidadDeLibros>4.
+/*
 A continuación se muestran algunos ejemplos de uso:
 
     lecturaDensa(saga(elSeniorDeLosAnillos,3)).
